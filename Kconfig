@@ -8,6 +8,7 @@ config DOCKER
 
 	select PROC_PID_CPUSET
 	select NET
+        select VLAN_8021Q
 	select NETDEVICES
 	select NET_CORE
 	select INET
@@ -105,7 +106,7 @@ config DOCKER_STATISTICS
 	select BLK_CGROUP
 	select IOSCHED_CFQ
 	select CGROUP_PERF
-	select CFS_BANDWIDTH
+	# select CFS_BANDWIDTH
 
 ## Required kernel version: 4.5
 
@@ -144,7 +145,7 @@ config DOCKER_AUFS
 
 config DOCKER_BTRFS
 	bool "Use btrfs"
-	default y
+	default n
 	depends on DOCKER
 	help
 		Yes if you are using btrfs
